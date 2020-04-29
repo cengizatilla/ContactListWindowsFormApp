@@ -1,0 +1,39 @@
+﻿create database contactListAppDB
+Go
+use contactListAppDB
+Go
+
+create table systemUser
+(
+Id uniqueidentifier primary key,
+userName nvarchar(50) unique not null,
+password nvarchar(100) not null,
+creationDate datetime default getdate()
+)
+
+insert into systemUser (Id,userName,password,creationDate) values (newId(),'cengiz.atilla','1',GETDATE())
+insert into systemUser (Id,userName,password,creationDate) values (newid(),'ali.ozturk','2',GETDATE())
+
+select * from systemUser
+
+create procedure checkSystemUser
+(
+@username nvarchar(50),
+@password nvarchar(100)
+)
+as
+begin
+select ID from systemUser where userName = @username and password = @password
+end
+
+exec checkSystemUser 'cengiz.atilla','1'
+
+create procedure getUserInformation
+(
+@userId uniqueidentifier
+)
+as
+begin
+select Id,userName,creationDate from systemUser where Id = @userId
+end
+
