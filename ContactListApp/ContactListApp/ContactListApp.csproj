@@ -47,11 +47,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationForms\MainForm\addNewContactCommunication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\addNewContactCommunication.Designer.cs">
+      <DependentUpon>addNewContactCommunication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\commActions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\commActions.Designer.cs">
+      <DependentUpon>commActions.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForms\MainForm\mainApp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationForms\MainForm\mainApp.Designer.cs">
       <DependentUpon>mainApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\newRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\newRecord.Designer.cs">
+      <DependentUpon>newRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\recordActions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\recordActions.Designer.cs">
+      <DependentUpon>recordActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\updateContactCommunication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\updateContactCommunication.Designer.cs">
+      <DependentUpon>updateContactCommunication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\viewUpdateContactRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationForms\MainForm\viewUpdateContactRecord.Designer.cs">
+      <DependentUpon>viewUpdateContactRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -59,17 +95,42 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="OperationLayer\DataAccessLayer\contactCommunicationDatabaseLogicLayer.cs" />
+    <Compile Include="OperationLayer\DataAccessLayer\contactDatabaseLogicLayer.cs" />
     <Compile Include="OperationLayer\DataAccessLayer\databaseLogicLayer.cs" />
     <Compile Include="OperationLayer\DataAccessLayer\systemUserDatabaseLogicLayer.cs" />
     <Compile Include="OperationLayer\Entities\applicationStatics.cs" />
     <Compile Include="OperationLayer\Entities\baseType.cs" />
-    <Compile Include="OperationLayer\Entities\systemUser.cs" />
-    <Compile Include="OperationLayer\Entities\systemUserLoginLog.cs" />
+    <Compile Include="OperationLayer\Entities\contact\contact.cs" />
+    <Compile Include="OperationLayer\Entities\contact\contactCommunicationList.cs" />
+    <Compile Include="OperationLayer\Entities\staticEntities\communicationType.cs" />
+    <Compile Include="OperationLayer\Entities\systemUser\systemUser.cs" />
+    <Compile Include="OperationLayer\Entities\systemUser\systemUserLoginLog.cs" />
+    <Compile Include="OperationLayer\Services\contactCommunicationService.cs" />
+    <Compile Include="OperationLayer\Services\contactService.cs" />
     <Compile Include="OperationLayer\Services\systemUserService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ApplicationForms\MainForm\addNewContactCommunication.resx">
+      <DependentUpon>addNewContactCommunication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\MainForm\commActions.resx">
+      <DependentUpon>commActions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForms\MainForm\mainApp.resx">
       <DependentUpon>mainApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\MainForm\newRecord.resx">
+      <DependentUpon>newRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\MainForm\recordActions.resx">
+      <DependentUpon>recordActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\MainForm\updateContactCommunication.resx">
+      <DependentUpon>updateContactCommunication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationForms\MainForm\viewUpdateContactRecord.resx">
+      <DependentUpon>viewUpdateContactRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -37,3 +37,83 @@ begin
 select Id,userName,creationDate from systemUser where Id = @userId
 end
 
+GO 
+
+create table contact
+(
+Id uniqueidentifier primary key,
+company nvarchar(100),
+title nvarchar(100),
+firstname nvarchar(50),
+lastname nvarchar(50),
+personelNote nvarchar(3000),
+systemUserId uniqueidentifier,
+creationDate datetime
+)
+
+GO 
+
+create procedure addNewContact
+(
+@Id uniqueidentifier,
+@company nvarchar(100),
+@title nvarchar(100),
+@firstname nvarchar(50),
+@lastname nvarchar(50),
+@personelNote nvarchar(3000),
+@systemUserId uniqueidentifier,
+@creationDate datetime
+)
+as
+begin
+insert into contact values (@Id,@company,@title,@firstname,@lastname,@personelNote,@systemUserId,@creationDate)
+end
+GO
+create table contactCommunicationList
+(
+Id uniqueidentifier primary key,
+personelId uniqueidentifier,
+communicationType int,
+communicationValue nvarchar(300),
+creationDate datetime
+)
+
+create table contactActions
+(
+Id uniqueidentifier primary key,
+personelId uniqueidentifier,
+communicationId uniqueidentifier,
+title nvarchar(100),
+descriptions nvarchar(4000),
+statusCode int,
+creationDate datetime
+)
+
+create proc deleteContactByPersonelID
+(
+@personelID uniqueidentifier,
+@systemUserId uniqueidentifier
+)
+as
+begin
+delete contact where Id = @personelID  and  systemUserId = @systemUserId
+delete contactCommunicationList where personelId = @personelID
+end
+
+create proc deletecontactActionsByPersonelID
+(
+@personelId uniqueidentifier
+)
+as
+begin
+delete contactActions where personelId = @personelId
+end
+
+create proc deleteContactCommunicationByPersonelID
+(
+@personelId uniqueidentifier
+)
+as
+begin
+delete contactCommunicationList where personelId = @personelId
+end
